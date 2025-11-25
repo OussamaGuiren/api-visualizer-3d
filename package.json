@@ -1,0 +1,18 @@
+{
+  "name": "api-visualizer-3d",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "nuxt": "^4.2.1",
+    "three": "^0.181.2",
+    "vue": "^3.5.25",
+    "vue-router": "^4.6.3"
+  }
+}

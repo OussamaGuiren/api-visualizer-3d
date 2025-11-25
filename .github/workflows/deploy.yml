@@ -1,0 +1,16 @@
+name: Deploy to Coolify
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Coolify Deploy Hook
+        run: |
+          curl -X POST "$COOLIFY_DEPLOY_HOOK_URL"
+        env:
+          COOLIFY_DEPLOY_HOOK_URL: ${{ secrets.COOLIFY_DEPLOY_HOOK_URL }}
