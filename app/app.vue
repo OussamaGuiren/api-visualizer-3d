@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>API Visualizer 3D</h1>
-    <p>premiere version deploiement automatique</p>
+    <p>premiere version deploiement automatique cicd</p>
     <ThreeScene />
     </div>
 </template>
