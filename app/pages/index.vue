@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <header class="header">
-      <h1>Mon Musée de Projets 3D</h1>
+      <h1>Mon Musée de Projets 3D : Projet perso</h1>
       <p>Avance dans la galerie et clique sur un tableau pour découvrir un projet.</p>
     </header>
 

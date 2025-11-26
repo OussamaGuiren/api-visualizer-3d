@@ -1,16 +1,28 @@
 name: Deploy to Coolify
 
+# Workflow: Déclenche un déploiement via Coolify lorsque du code est poussé sur la branche `main`.
+# - Nous utilisons un hook HTTP fourni par Coolify. L'URL du hook est conservée dans les Secrets GitHub
+#   afin de ne pas divulguer d'information sensible dans le repo.
+
 on:
-  push:
+  push: # Déclenche ce workflow lors d'un push
     branches:
-      - main
+      - main # seulement quand on pousse sur `main` (éviter les déploiements depuis d'autres branches)
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Coolify Deploy Hook
+        # Description de l'étape : envoie une requête POST au webhook Coolify pour démarrer le déploiement.
+        # On récupère l'URL du hook depuis un secret GitHub (`COOLIFY_DEPLOY_HOOK_URL`) pour la sécurité.
+        # Astuces/bonnes pratiques (optionnel) :
+        # - Pour que l'étape échoue lorsque la requête échoue, utilisez : curl -sS --fail ...
+        # - Vous pouvez ajouter un en-tête JSON ou des données si Coolify attend un payload :
+        #     curl -sS --fail -H "Content-Type: application/json" -d '{"ref":"${{ github.ref }}"}' "$COOLIFY_DEPLOY_HOOK_URL"
+        # - Il est conseillé de s'assurer que `COOLIFY_DEPLOY_HOOK_URL` est défini dans les Secrets de l'organisation
         run: |
           curl -X POST "$COOLIFY_DEPLOY_HOOK_URL"
         env:
+          # Secret GitHub : STOCKEZ L'URL DU HOOK COOLIFY ICI (Paramètres du repo -> Secrets)
           COOLIFY_DEPLOY_HOOK_URL: ${{ secrets.COOLIFY_DEPLOY_HOOK_URL }}
