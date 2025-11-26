@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>TEST TITRE CI CD</h1>
+    <h1>API Visualizer 3D</h1>
     <ThreeScene />
     </div>
 </template>

@@ -16,7 +16,7 @@ onMounted(() => {
   scene.background = new THREE.Color(0xFFBB7D)
 
   const geometry = new THREE.BoxGeometry()
-  const material = new THREE.MeshStandardMaterial({ color: 0x007BFF   })
+  const material = new THREE.MeshStandardMaterial({ color: 0x007BFF, wireframe: true})
   const cube = new THREE.Mesh(geometry, material)
   scene.add(cube)
 
