@@ -1,11 +1,21 @@
 <template>
-  <div>
-    <h1>API Visualizer 3D</h1>
-    <p>premiere version deploiement automatique cicd</p>
-    <ThreeScene />
-    </div>
+  <NuxtPage />
 </template>
 
-<script setup>
-import ThreeScene from '~/components/ThreeScene.vue'
-</script>
+<style>
+html,
+body,
+#__nuxt {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #f3f4f6; /* gris clair */
+  color: #0f172a;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+</style>

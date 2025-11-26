@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "id": "warehouse-3d",
+      "title": "3D Warehouse Inventory",
+      "shortDescription": "Visualisation 3D d’un entrepôt avec états de stock.",
+      "role": "Fullstack .NET / Nuxt",
+      "technologies": [".NET 8", "Nuxt 3", "Three.js", "CI/CD"],
+      "story": "Ce projet m’a permis de travailler sur la 3D, les scènes Three.js, et de connecter un front Nuxt à une API .NET, avec une logique métier concrète autour des stocks.",
+      "githubUrl": "https://github.com/ton-compte/warehouse-3d",
+      "demoUrl": "https://projects.ton-domaine/warehouse-3d",
+      "wall": "left",
+      "order": 1
+    },
+    {
+      "id": "cv-online",
+      "title": "CV Online Interactif",
+      "shortDescription": "Mon CV complet avec sections dynamiques.",
+      "role": "Développeur .NET / Frontend",
+      "technologies": [".NET", "Vue.js", "Tailwind"],
+      "story": "Projet vitrine pour présenter mon expérience, mes projets, et mes objectifs de carrière.",
+      "githubUrl": null,
+      "demoUrl": "https://cv.ton-domaine",
+      "wall": "right",
+      "order": 2
+    }
+  ]
+}
