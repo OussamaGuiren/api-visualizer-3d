@@ -13,12 +13,14 @@ onMounted(() => {
   renderer.setSize(window.innerWidth, window.innerHeight)
   document.body.appendChild(renderer.domElement)
 
+  scene.background = new THREE.Color(0xFFBB7D)
+
   const geometry = new THREE.BoxGeometry()
-  const material = new THREE.MeshStandardMaterial({ color: 0x007bff })
+  const material = new THREE.MeshStandardMaterial({ color: 0x007BFF   })
   const cube = new THREE.Mesh(geometry, material)
   scene.add(cube)
 
-  const light = new THREE.PointLight(0xffffff, 1)
+  const light = new THREE.PointLight(0xffffff, 2 )
   light.position.set(5, 5, 5)
   scene.add(light)
 

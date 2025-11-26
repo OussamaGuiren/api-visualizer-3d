@@ -22,11 +22,11 @@ FROM node:22.12.0-alpine AS runner
 WORKDIR /app
 
 # On copie les fichiers nécessaires pour le run
-COPY package*.json ./
+#COPY package*.json ./
 COPY --from=builder /app/.output ./.output
 
 # Install uniquement les dépendances nécessaires au runtime
-RUN npm install --omit=dev
+# RUN npm install --omit=dev
 
 # Nuxt/Nitro écoute sur PORT
 ENV NITRO_PORT=3000
