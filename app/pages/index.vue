@@ -261,7 +261,7 @@ onMounted(async () => {
   height: calc(100vh - 64px); /* 64px = header app.vue */
   max-height: 900px;
   background: #f3f4f6;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
 }
@@ -271,6 +271,8 @@ onMounted(async () => {
   flex: 1.6;
   position: relative;
   min-height: 260px;
+  /* Responsive height: keep the layout but allow the scene to take a viewport proportion on narrow screens */
+  height: min(60vh, calc(100vh - 64px));
   background: radial-gradient(
     circle at top,
     #e5f3ff 0,
@@ -290,19 +292,19 @@ onMounted(async () => {
 .dashboard-panel {
   flex: 1;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   background: #f3f4f6;
-  padding: 24px;
+  /* padding: 24px; */
 }
 
 .dashboard-card {
   width: 100%;
   max-width: 480px;
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  /* border: 1px solid #e5e7eb; */
   border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); */
   display: flex;
   flex-direction: column;
 }
@@ -394,7 +396,7 @@ onMounted(async () => {
 
 .dashboard-footer {
   border-top: 1px solid #e5e7eb;
-  background: #f9fafb;
+  /* background: #f9fafb; */
   padding: 10px 20px;
   display: flex;
   justify-content: flex-end;
@@ -419,6 +421,30 @@ onMounted(async () => {
 /* Responsive */
 
 @media (max-width: 768px) {
+  /* mobile/tablet : empiler la carte et le panneau */
+  .france-page {
+    flex-direction: column;
+    height: auto; /* laisser scroller verticalement si nécessaire */
+    min-height: calc(100vh - 64px);
+    max-height: none;
+  }
+
+  .scene-wrapper {
+    flex: 0 0 auto;
+    height: min(55vh, 520px);
+    min-height: 220px;
+  }
+
+  .dashboard-panel {
+    flex: 0 0 auto;
+    padding: 12px;
+  }
+
+  .dashboard-card {
+    max-width: 100%;
+    width: 95%;
+    margin: 12px auto;
+  }
   .dashboard-panel {
     padding: 16px;
   }
@@ -429,6 +455,24 @@ onMounted(async () => {
 
   .data-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .dashboard-title {
+    font-size: 16px;
+  }
+  .dashboard-subtitle {
+    font-size: 12px;
+  }
+  .data-label {
+    font-size: 11px;
+  }
+  .data-value {
+    font-size: 15px;
+  }
+  .intro-badge {
+    font-size: 20px;
   }
 }
 

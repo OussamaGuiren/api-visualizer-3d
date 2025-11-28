@@ -117,7 +117,7 @@ body {
 /* Zone contenu */
 .app-main {
   flex: 1;
-  padding: 16px;
+  /* padding: 16px; */
 }
 
 /* Responsive header */
