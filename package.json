@@ -10,6 +10,7 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
+    "gsap": "^3.13.0",
     "nuxt": "^4.2.1",
     "three": "^0.181.2",
     "vue": "^3.5.25",
