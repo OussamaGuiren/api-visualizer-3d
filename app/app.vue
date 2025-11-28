@@ -1,5 +1,7 @@
 <template>
   <div class="app-shell">
+    <!-- Favicon OG orange -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- Top bar -->
     <header class="app-header">
       <div class="app-header-left">

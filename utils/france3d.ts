@@ -12,10 +12,10 @@ export async function initFrance3D( // Fonction principale pour initialiser la c
   const scene = new THREE.Scene() // Crée la scène 3D qui va contenir tous les objets.
   scene.background = new THREE.Color(0xf9fafb) // Définit la couleur de fond de la scène.
 
-  const width = container.clientWidth || 300 // Récupère la largeur du conteneur ou met 300 par défaut.
-  const height = container.clientHeight || 300 // Récupère la hauteur du conteneur ou met 300 par défaut.
+  const width = container.clientWidth || 400 // Récupère la largeur du conteneur ou met 300 par défaut.
+  const height = container.clientHeight || 400 // Récupère la hauteur du conteneur ou met 300 par défaut.
 
-  const camera = new THREE.PerspectiveCamera(35, width / height, 0.1, 50000) // Crée une caméra perspective pour voir la scène.
+  const camera = new THREE.PerspectiveCamera(35, width / height, 1.1, 50000) // Crée une caméra perspective pour voir la scène.
   camera.position.set(0, 0, 5000) // Place la caméra au-dessus de la carte.
   camera.lookAt(0, 0, 0) // Oriente la caméra vers le centre de la scène.
 
@@ -81,7 +81,7 @@ export async function initFrance3D( // Fonction principale pour initialiser la c
     const size = new THREE.Vector3()
     box.getSize(size)
 
-    const fovRad = (camera.fov * Math.PI) / 160
+    const fovRad = (camera.fov * Math.PI) / 180
     const halfHeight = size.y / 2
     const halfWidth = size.x / 2
     const aspect = camera.aspect
