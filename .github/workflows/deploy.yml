@@ -26,7 +26,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Coolify deploy hook
-        # L'URL du hook vit dans les Secrets du dépôt (Settings → Secrets → COOLIFY_DEPLOY_HOOK_URL).
-        run: curl -sS --fail -X POST "$COOLIFY_DEPLOY_HOOK_URL"
+        # L'URL du hook vit dans les Secrets du dépôt :
+        # Settings → Secrets and variables → Actions → New repository secret
+        #   Nom   : COOLIFY_DEPLOY_HOOK_URL
+        #   Valeur: l'URL du webhook fournie par Coolify (https://…/api/v1/deploy?uuid=…)
+        run: |
+          if [ -z "$COOLIFY_DEPLOY_HOOK_URL" ]; then
+            echo "::error::Le secret COOLIFY_DEPLOY_HOOK_URL est vide ou absent."
+            echo "Créez-le dans Settings → Secrets and variables → Actions → New repository secret."
+            echo "Attention : un « secret », pas une « variable », et sur CE dépôt."
+            exit 1
+          fi
+          # --fail-with-body affiche la réponse de Coolify en cas d'erreur HTTP.
+          curl -sS --fail-with-body -X POST "$COOLIFY_DEPLOY_HOOK_URL"
         env:
           COOLIFY_DEPLOY_HOOK_URL: ${{ secrets.COOLIFY_DEPLOY_HOOK_URL }}
