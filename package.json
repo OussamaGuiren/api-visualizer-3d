@@ -1,5 +1,5 @@
 {
-  "name": "api-visualizer-3d",
+  "name": "atlas-commercial-3d",
   "type": "module",
   "private": true,
   "scripts": {
@@ -7,16 +7,23 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck",
+    "data:geojson": "node scripts/simplify-geojson.mjs",
+    "data:exemples": "node scripts/generate-examples.mjs"
   },
   "dependencies": {
     "gsap": "^3.13.0",
+    "leaflet": "^1.9.4",
     "nuxt": "^4.2.1",
     "three": "^0.181.2",
     "vue": "^3.5.25",
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
-    "@types/three": "^0.181.0"
+    "@types/leaflet": "^1.9.22",
+    "@types/three": "^0.181.0",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.3.11"
   }
 }

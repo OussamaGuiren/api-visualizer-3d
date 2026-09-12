@@ -7,8 +7,8 @@ WORKDIR /app
 # On copie d'abord les fichiers de dépendances
 COPY package*.json ./
 
-# Install des dépendances (env de build)
-RUN npm install
+# Install reproductible depuis package-lock.json (env de build)
+RUN npm ci
 
 # On copie le reste du projet
 COPY . .
